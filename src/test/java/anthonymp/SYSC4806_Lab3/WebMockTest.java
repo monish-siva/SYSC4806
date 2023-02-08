@@ -32,9 +32,9 @@ public class WebMockTest {
 	@Test
 	public void greetingShouldReturnMessageFromService() throws Exception {
 		when(service.defaultHomePageJSON()).thenReturn("");
-		//this.mockMvc.perform(post("/addressBookCreate")).andDo(print()).andExpect(status().isOk());
+		this.mockMvc.perform(post("/addressBookCreate")).andDo(print()).andExpect(status().isOk());
 		this.mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk());
-		//this.mockMvc.perform(post("/greeting")).andDo(print()).andExpect(status().isOk());
+		this.mockMvc.perform(post("/greeting")).andDo(print()).andExpect(status().isOk());
 
 
 		/*this.mockMvc.perform(post("/addressBookCreate")).andDo(print()).andExpect(status().isOk())
