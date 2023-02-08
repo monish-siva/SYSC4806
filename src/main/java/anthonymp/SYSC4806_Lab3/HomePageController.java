@@ -3,9 +3,9 @@ package anthonymp.SYSC4806_Lab3;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /*GET http://localhost:8080/addressBooks/1/contacts
 DELETE http://localhost:8080/addressBooks/1/contacts/1
@@ -21,10 +21,13 @@ public class HomePageController {
     private AddressBookRepository addressBookRepository;
     private BuddyInfoRepository buddyInfoRepository;
 
+    private final HomePageService service;
+
     @Autowired
-    public HomePageController(AddressBookRepository addressBookRepository, BuddyInfoRepository buddyInfoRepository) {
+    public HomePageController(AddressBookRepository addressBookRepository, BuddyInfoRepository buddyInfoRepository,HomePageService service) {
         this.addressBookRepository = addressBookRepository;
         this.buddyInfoRepository = buddyInfoRepository;
+        this.service = service;
     }
 
     @GetMapping("/greeting")
@@ -63,4 +66,10 @@ public class HomePageController {
         model.addAttribute("addressBook", addressBook);
         return "addressBook";
     }
+
+    @RequestMapping("/greeting")
+    public @ResponseBody String homePageTest() {
+        return service.defaultHomePageJSON();
+    }
+
 }
