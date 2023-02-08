@@ -17,7 +17,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 
 //On Hold.
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
 public class TestingWebApplicationTest {
 
@@ -31,15 +31,15 @@ public class TestingWebApplicationTest {
                         "" +
                         "  \"_links\" : {\r\n" +
                         "" +
-                        "    \"buddyInfoes\" : {\r\n" +
+                        "    \"addressBooks\" : {\r\n" +
                         "" +
-                        "      \"href\" : \"http://localhost"+""+"/buddyInfoes\"\r\n" +
+                        "      \"href\" : \"http://localhost"+""+"/addressBooks\"\r\n" +
                         "" +
                         "    },\r\n" +
                         "" +
-                        "    \"addressBooks\" : {\r\n" +
+                        "    \"buddyInfoes\" : {\r\n" +
                         "" +
-                        "      \"href\" : \"http://localhost"+"/addressBooks\"\r\n" +
+                        "      \"href\" : \"http://localhost"+"/buddyInfoes\"\r\n" +
                         "" +
                         "    },\r\n" +
                         "" +

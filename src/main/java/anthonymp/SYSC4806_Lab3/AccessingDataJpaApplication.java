@@ -7,8 +7,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
-
+import org.springframework.web.client.RestTemplate;
 
 
 @SpringBootApplication
@@ -20,6 +21,11 @@ public class AccessingDataJpaApplication {
         SpringApplication.run(AccessingDataJpaApplication.class);
     }
 
+
+    @Bean
+    public RestTemplate restTemplate(RestTemplateBuilder builder) {
+        return builder.build();
+    }
     @Bean
     public CommandLineRunner demo(BuddyInfoRepository buddyRepository, AddressBookRepository addressBookRepository) {
         return (args) -> {
@@ -32,6 +38,8 @@ public class AccessingDataJpaApplication {
             a1.addContact(b3);
             addressBookRepository.save(a1);
         };
+
+
 
 
 
