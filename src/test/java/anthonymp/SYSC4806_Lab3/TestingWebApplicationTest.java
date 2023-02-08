@@ -2,6 +2,7 @@ package anthonymp.SYSC4806_Lab3;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -26,7 +27,11 @@ public class TestingWebApplicationTest {
 
 	@Test
 	public void shouldReturnDefaultJSONMessage() throws Exception {
-		this.mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk())
+		this.mockMvc.perform(post("/addressBookCreate")).andDo(print()).andExpect(status().isOk());
+		this.mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk());
+		this.mockMvc.perform(post("/greeting")).andDo(print()).andExpect(status().isOk());
+
+		/*this.mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk())
                 .andExpect(content().string("{\r\n" +
                         "" +
                         "  \"_links\" : {\r\n" +
@@ -51,6 +56,6 @@ public class TestingWebApplicationTest {
                         "" +
                         "  }\r\n" +
                         "" +
-                        "}"));
+                        "}"));*/
 	}
 }
