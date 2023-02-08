@@ -15,7 +15,7 @@ public class SmokeTest {
 
     //Test if context is creating HomePageController
     @Test
-    void contextLoads2() {
+    void contextLoads() {
         assert (homePageController != null);
     }
 }
