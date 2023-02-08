@@ -11,6 +11,7 @@ name: Java CI with Maven
 on:
   push:
     branches: [ "master" ]
+    
   pull_request:
     branches: [ "master" ]
 
@@ -18,7 +19,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    permissions: read-all|write-all
+    permissions: read-all
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 17
