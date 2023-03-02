@@ -47,14 +47,14 @@ public class HomePageController {
         return "buddy";
     }
 
-    @PostMapping("/buddyRemove")
-    public String buddyRemove(@ModelAttribute("buddyRemove") BuddyInfo buddyInfo) {
-        AddressBook addressBook = addressBookRepository.findByID(1L);
-        addressBook.removeContact(buddyInfo.getID());
-        buddyInfoRepository.deleteById(buddyInfo.getID());
+    @DeleteMapping ("/buddyRemove")
+    public String buddyRemove(@RequestParam Long addressID, Long buddyID) {
+        AddressBook addressBook = addressBookRepository.findByID(addressID);
+        BuddyInfo buddy = buddyInfoRepository.findByID(buddyID);
+        addressBook.removeContact(buddy.getID());
         addressBookRepository.save(addressBook);
-        //addressBookRepository.save(addressBook);
-        return "buddyRemove";
+        buddyInfoRepository.deleteById(buddy.getID());
+        return "greeting";
     }
 
     @PostMapping("/addressBookCreate")

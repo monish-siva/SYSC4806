@@ -40,6 +40,10 @@ public class AddressBook {
         return this.contacts;
     }
 
+    public BuddyInfo getContactByID(Integer ID) {
+        return this.contacts.get(ID);
+    }
+
     public Long getID() {
 
         return this.ID;
