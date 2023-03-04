@@ -1,0 +1,75 @@
+package anthonymp.SYSC4806_Lab3;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+/*GET http://localhost:8080/addressBooks/1/contacts
+DELETE http://localhost:8080/addressBooks/1/contacts/1
+
+http://localhost:8080/greeting?name=User
+http://localhost:8080/create2?name=Jim?phone#=0001112222
+http://localhost:8080/create2?name=Bob&phoneNumber=6*/
+
+@Controller
+public class HomePageController {
+
+
+    private AddressBookRepository addressBookRepository;
+    private BuddyInfoRepository buddyInfoRepository;
+
+    private final HomePageService service;
+
+    @Autowired
+    public HomePageController(AddressBookRepository addressBookRepository, BuddyInfoRepository buddyInfoRepository,HomePageService service) {
+        this.addressBookRepository = addressBookRepository;
+        this.buddyInfoRepository = buddyInfoRepository;
+        this.service = service;
+    }
+
+    @GetMapping("/greeting")
+    public String greetingForm(Model model) {
+        model.addAttribute("addressBook", new AddressBook());
+        model.addAttribute("buddy", new BuddyInfo());
+        model.addAttribute("buddyRemove");
+        return "greeting";
+    }
+
+    @PostMapping("/buddyAdd")
+    public String buddySubmit(@ModelAttribute("buddy") BuddyInfo buddyInfo) {
+        AddressBook addressBook = addressBookRepository.findByID(1L);
+        addressBook.addContact(buddyInfo);
+        buddyInfoRepository.save(buddyInfo);
+        addressBookRepository.save(addressBook);
+        return "buddy";
+    }
+
+    @DeleteMapping ("/buddyRemove")
+    public String buddyRemove(@RequestParam Long addressID, Long buddyID) {
+        AddressBook addressBook = addressBookRepository.findByID(addressID);
+        BuddyInfo buddy = buddyInfoRepository.findByID(buddyID);
+        addressBook.removeContact(buddy.getID());
+        addressBookRepository.save(addressBook);
+        buddyInfoRepository.deleteById(buddy.getID());
+        return "greeting";
+    }
+
+    @PostMapping("/addressBookCreate")
+    public String addressBookSubmit(Model model) {
+        if (addressBookRepository.findByID(1L) == null) {
+            addressBookRepository.save(new AddressBook());
+        }
+        AddressBook addressBook = addressBookRepository.findByID(1L);
+        model.addAttribute("addressBook", addressBook);
+        return "addressBook";
+    }
+
+    @RequestMapping("/greeting")
+    public @ResponseBody String homePageTest() {
+        return service.defaultHomePageJSON();
+    }
+
+}
