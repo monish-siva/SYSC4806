@@ -46,7 +46,7 @@ public class User {
         return this.password;
     }
 
-    //Setter for phone#
+    //setter for password
     public void setPassword(String password) {
         this.password = password;
     }
