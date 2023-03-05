@@ -8,10 +8,10 @@
 		<version>3.0.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>anthonymp</groupId>
-	<artifactId>SYSC4806_Lab6</artifactId>
+	<groupId>perkmanager</groupId>
+	<artifactId>PerkManager</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>SYSC4806_Lab3</name>
+	<name>PerkManager</name>
 	<description>Spring Boot JPA and H2 Database</description>
 	<properties>
 		<java.version>17</java.version>

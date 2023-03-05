@@ -1,8 +1,9 @@
-package anthonymp.SYSC4806_Lab3;
+package PerkManager;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "user_profile") //this is requirerd or we will get a SQL jointable error.
 public class User {
     private String username;
     private String password;
@@ -16,7 +17,7 @@ public class User {
 
     //Default-No-Argument-Constructor
     //Default Constructor.
-    protected User () {
+    public User () {
         this.username = "";
         this.password = "";
         this.ID = null;
