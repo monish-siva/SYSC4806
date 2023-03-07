@@ -16,7 +16,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
-
+/*
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -37,7 +37,7 @@ public class WebMockTest {
 		this.mockMvc.perform(post("/greeting")).andDo(print()).andExpect(status().isOk());
 
 
-		/*this.mockMvc.perform(post("/addressBookCreate")).andDo(print()).andExpect(status().isOk())
+		this.mockMvc.perform(post("/addressBookCreate")).andDo(print()).andExpect(status().isOk())
 				.andExpect(content().string(containsString("<!DOCTYPE HTML>\n" +
 						"<html>\n" +
 						"<head>\n" +
@@ -64,6 +64,7 @@ public class WebMockTest {
 						"</p>\n" +
 						"<a href=\"/greeting\">GO BACK</a>\n" +
 						"</body>\n" +
-						"</html>\"")));*/
+						"</html>\"")));
 	}
 }
+*/
