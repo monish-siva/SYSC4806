@@ -1,10 +1,8 @@
 package PerkManager;
 
-import org.aspectj.lang.annotation.Before;
+import PerkManager.Classes.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class UserTest {
     @Test

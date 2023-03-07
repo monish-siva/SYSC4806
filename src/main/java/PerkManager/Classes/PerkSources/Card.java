@@ -1,4 +1,4 @@
-package PerkManager.PerkSources;
+package PerkManager.Classes.PerkSources;
 
 //
 public enum Card {

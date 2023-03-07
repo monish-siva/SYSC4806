@@ -1,4 +1,4 @@
-package PerkManager;
+package PerkManager.Classes;
 
 import jakarta.persistence.*;
 
@@ -18,7 +18,7 @@ public class UserAccounts {
 
     //Default-No-Argument-Constructor
     //Default Constructor.
-    protected UserAccounts () {
+    public UserAccounts () {
         this.users = new ArrayList<User>();
     }
 

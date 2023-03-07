@@ -1,6 +1,6 @@
-package PerkManager;
+package PerkManager.Repositorys;
 
-import PerkManager.UserAccounts;
+import PerkManager.Classes.UserAccounts;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

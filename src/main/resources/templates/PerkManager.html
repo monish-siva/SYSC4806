@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Getting Started: Handling Form Submission</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+
+
+<h2 style="background-color:Tomato;">Welcome to Perk Managers Online Portal</h2>
+
+<form action="#" th:action="@{/addressBookCreate}" th:object="${Register}" method="post">
+  <p><input type="submit" value="Register" /></p>
+</form>
+
+<form action="#" th:action="@{/addressBookCreate}" th:object="${addressBook}" method="post">
+  <p><input type="submit" value="Login" /></p>
+</form>
+
+<form action="#" th:action="@{/addressBookCreate}" th:object="${addressBook}" method="post">
+  <p><input type="submit" value="Continue As Guest" /></p>
+</form>
+
+</body>
+</html>

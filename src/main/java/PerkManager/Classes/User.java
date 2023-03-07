@@ -1,4 +1,4 @@
-package PerkManager;
+package PerkManager.Classes;
 
 import jakarta.persistence.*;
 
