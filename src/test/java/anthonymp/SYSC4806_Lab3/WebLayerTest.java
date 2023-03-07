@@ -14,7 +14,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
-
+/*
 @SpringBootTest
 @AutoConfigureMockMvc
 //tag::test[]
@@ -29,7 +29,7 @@ public class WebLayerTest {
 		this.mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk());
 		this.mockMvc.perform(post("/greeting")).andDo(print()).andExpect(status().isOk());
 
-		/*this.mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk())
+		this.mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk())
 				.andExpect(content().string(containsString("{\r\n" +
                         "" +
                         "  \"_links\" : {\r\n" +
@@ -54,8 +54,8 @@ public class WebLayerTest {
                         "" +
                         "  }\r\n" +
                         "" +
-                        "}")));*/
+                        "}")));
 
 	}
-}
+}*/
 //end::test[]

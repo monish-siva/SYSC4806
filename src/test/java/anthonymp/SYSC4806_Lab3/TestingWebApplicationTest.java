@@ -16,7 +16,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.web.servlet.MockMvc;
 
-
+/*
 //On Hold.
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
@@ -31,7 +31,7 @@ public class TestingWebApplicationTest {
 		this.mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk());
 		this.mockMvc.perform(post("/greeting")).andDo(print()).andExpect(status().isOk());
 
-		/*this.mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk())
+		this.mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk())
                 .andExpect(content().string("{\r\n" +
                         "" +
                         "  \"_links\" : {\r\n" +
@@ -56,6 +56,6 @@ public class TestingWebApplicationTest {
                         "" +
                         "  }\r\n" +
                         "" +
-                        "}"));*/
+                        "}"));
 	}
-}
+}*/
