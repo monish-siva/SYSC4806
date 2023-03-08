@@ -10,8 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import java.util.List;
-import java.util.ArrayList;
 
 @Controller
 public class UserRestController {
@@ -30,9 +28,9 @@ public class UserRestController {
     }
 
     @RequestMapping(value = "/userProfile", method = RequestMethod.POST)
-    public User addUser(@RequestParam String name, @RequestParam String password, @RequestParam ArrayList<Perk> perks) {
+    public User addUser(@RequestParam String name, @RequestParam String password, @RequestParam Perk perk) {
         UserAccounts userAccounts = userAccountsRepository.findByID(1L);
-        User user = new User(name,password, perks);
+        User user = new User(name,password, perk);
         userAccounts.addUser(user);
         userRepository.save(user);
         userAccountsRepository.save(userAccounts);
