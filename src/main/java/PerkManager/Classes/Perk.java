@@ -25,7 +25,7 @@ public class Perk {
     /**
      * Default constructor
      */
-    protected Perk(){
+    public Perk(){
         this.location = "";
         this.card = "";
         this.membership = "";

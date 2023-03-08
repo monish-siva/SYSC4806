@@ -1,5 +1,6 @@
 package PerkManager.Controllers;
 
+import PerkManager.Classes.Perk;
 import PerkManager.Classes.User;
 import PerkManager.Classes.UserAccounts;
 import PerkManager.Repositorys.UserAccountsRepository;
@@ -27,9 +28,9 @@ public class UserRestController {
     }
 
     @RequestMapping(value = "/userProfile", method = RequestMethod.POST)
-    public User addUser(@RequestParam String name, @RequestParam String password) {
+    public User addUser(@RequestParam String name, @RequestParam String password, @RequestParam Perk perk) {
         UserAccounts userAccounts = userAccountsRepository.findByID(1L);
-        User user = new User(name,password);
+        User user = new User(name,password, perk);
         userAccounts.addUser(user);
         userRepository.save(user);
         userAccountsRepository.save(userAccounts);
