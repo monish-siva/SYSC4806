@@ -13,5 +13,7 @@ Plan For Next Sprint:
 - Test all new classes
 - Create integration tests for controllers
 - Implement Svelte
-Schema: https://github.com/monishkumar-sivakumar/SYSC4806/blob/main/src/MileStone1%20Schema.png
+Schema:
+![image](https://user-images.githubusercontent.com/63323924/223807295-7d8e55eb-4b10-43ab-a597-9060f4ed45f4.png)
+
 ULM Diagram: https://github.com/monishkumar-sivakumar/SYSC4806/blob/main/src/SYSC4806.MileStone1.UMLDiagram.png
