@@ -13,7 +13,18 @@ $(document).ready(function () {
         }
     });
 
-    $(function() {
+    $.ajax({
+        url: "http://localhost:8080/user?id=1"
+    }).then(function (data) {
+        if (data) {
+            $('.perk-id').append("Address Book ID: " + (this).serialize());
+            /*for (i = 0; i < data.perks.length; i++) {
+                $('.perk-contents').append("name: " + data.perks[i].location + ", ").append("Card: " + data.perks[i].card).append("membership: " + data.perks[i].membership).append("discount: " + data.perks[i].discount).append("<br>");
+            }*/
+        }
+    });
+
+    /*$(function() {
         $('#addNewBuddyForm').submit(function(e) {
             e.preventDefault();
 
@@ -29,7 +40,7 @@ $(document).ready(function () {
             });
 
         });
-    })
+    })*/
 
 
 

@@ -13,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class WebPageController {
     private UserAccountsRepository userAccountsRepository;
@@ -68,9 +70,11 @@ public class WebPageController {
         UserAccounts UserAccounts = userAccountsRepository.findByID(1L);
         Long currentUserID = UserAccounts.findUser(user.getUsername(),user.getPassword());
         User currentUser = UserAccounts.getUserByID(currentUserID-1);
-        //userRepository.save(currentUser);
-        //userAccountsRepository.save(UserAccounts);
         model.addAttribute("userProfile", currentUser);
+        PerkList perkList = perkListRepository.findByID(1L);
+
+        List<Perk> perks =UserAccounts.getUserByID(currentUserID-1).getPerk();
+        model.addAttribute("PerkList", perks.get(0));
         return "userProfile";
     }
 
