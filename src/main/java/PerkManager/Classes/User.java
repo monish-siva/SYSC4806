@@ -11,19 +11,11 @@ public class User {
     private String password;
 
     @OneToMany (cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private ArrayList<Perk> perks;
+    private List<Perk> perks;
 
     @Id
     @GeneratedValue
     private Long ID;
-
-    public ArrayList<Perk> getPerk() {
-        return perks;
-    }
-
-    public void setPerk(ArrayList<Perk> perks) {
-        this.perks = perks;
-    }
 
     /* Constructors */
 
@@ -34,20 +26,29 @@ public class User {
         this.username = "";
         this.password = "";
         this.ID = null;
-        this.perks = null;
+        this.perks = new ArrayList<Perk>();
     }
 
     //Constructor#2 set username and password
-    public User (String username, String password, ArrayList<Perk> perks) {
+    public User (String username, String password) {
         this();
         this.username = username;
         this.password = password;
-        this.perks = perks;
+        this.perks = new ArrayList<Perk>();
     }
 
     /* Methods */
 
     //getter for username
+
+    public List<Perk> getPerk() {
+        return this.perks;
+    }
+
+    public void addPerk(Perk perk) {
+        this.perks.add(perk);
+    }
+
     public String getUsername() {
         return this.username;
     }
