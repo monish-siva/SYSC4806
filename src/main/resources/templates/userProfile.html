@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="ajax.js"></script>
+</head>
+<body>
+<h1 style="background-color:Tomato;">Account Overview</h1>
+<p th:text="'User Name: ' + ${userProfile.username}" ></p>
+<p th:text="'Password : ' + ${userProfile.password}" ></p>
+<p th:text="'Id       : ' + ${userProfile.ID}" ></p>
+<p th:text="'Current Perk(s): '" ></p>
+<p class="perks-id"></p>
+<p class="perks-contents"></p>
+<p th:text="'Perk Location(s) ' + ${PerkList.location}" ></p>
+<p th:text="'Perk Card(s): ' + ${PerkList.card}" ></p>
+<p th:text="'Perk membership(s): ' + ${PerkList.membership}" ></p>
+<p th:text="'Current discount(s): ' + ${PerkList.discount}" ></p>
+<a href="/PerkManager">GO BACK</a>
+</body>
+</html>

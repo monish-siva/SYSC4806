@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Getting Started: Handling Form Submission</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1 style="background-color:Tomato;">Newly Added User Account Info</h1>
+<p th:text="'User Name: ' + ${user.username}" ></p>
+<p th:text="'Password : ' + ${user.password}" ></p>
+<p th:text="'Id       : ' + ${user.ID}" ></p>
+<a href="/PerkManager">GO BACK</a>
+</body>
+</html>

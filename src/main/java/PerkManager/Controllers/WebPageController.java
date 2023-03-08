@@ -13,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class WebPageController {
     private UserAccountsRepository userAccountsRepository;
@@ -28,19 +30,29 @@ public class WebPageController {
         this.perkListRepository = perkListRepository;
         this.perkRepository = perkRepository;
     }
-    @GetMapping("/tbd")
-    public String userForm(Model model) {
+    @GetMapping("/PerkManager")
+    public void frontPage() {}
+
+    @GetMapping("/Register")
+    public String newUserForm(Model model) {
         model.addAttribute("UserAccounts", new UserAccounts());
         model.addAttribute("user", new User());
-        return "tbd";
+        return "Register";
     }
-    @PostMapping("/registerNewUser")
-    public String userSubmit(@ModelAttribute("buddy") User user) {
+
+    @GetMapping("/Login")
+    public String userLogin(Model model) {
+        model.addAttribute("UserAccounts", new UserAccounts());
+        model.addAttribute("userProfile", new User());
+        return "Login";
+    }
+    @PostMapping("/newUserInfoPage")
+    public String userSubmit(@ModelAttribute("user") User user) {
         UserAccounts UserAccounts = userAccountsRepository.findByID(1L);
         UserAccounts.addUser(user);
         userRepository.save(user);
         userAccountsRepository.save(UserAccounts);
-        return "usert";
+        return "user";
     }
 
     @PostMapping("/addNewPerk")
@@ -52,9 +64,24 @@ public class WebPageController {
         return "perk";
     }
 
+    @PostMapping("/userProfilePage")
+    //public String userLogin(@ModelAttribute("userProfile") User user) {
+    public String userLogin(User user,Model model) {
+        UserAccounts UserAccounts = userAccountsRepository.findByID(1L);
+        Long currentUserID = UserAccounts.findUser(user.getUsername(),user.getPassword());
+        User currentUser = UserAccounts.getUserByID(currentUserID-1);
+        model.addAttribute("userProfile", currentUser);
+        PerkList perkList = perkListRepository.findByID(1L);
+
+        List<Perk> perks =UserAccounts.getUserByID(currentUserID-1).getPerk();
+        model.addAttribute("PerkList", perks.get(0));
+        return "userProfile";
+    }
+
     /*@PostMapping("/removeUser")
     public String removeUser(@RequestParam Long UserAccountsID, Long userID) {
     }*/
+
     @PostMapping("/addNewUserAccount")
     public String userAccountSubmit(Model model) {
         if (userAccountsRepository.findByID(1L) == null) {
