@@ -30,9 +30,9 @@ public class UserRestController {
     }
 
     @RequestMapping(value = "/userProfile", method = RequestMethod.POST)
-    public User addUser(@RequestParam String name, @RequestParam String password, @RequestParam ArrayList<Perk> perks) {
+    public User addUser(@RequestParam String name, @RequestParam String password) {
         UserAccounts userAccounts = userAccountsRepository.findByID(1L);
-        User user = new User(name,password, perks);
+        User user = new User(name,password);
         userAccounts.addUser(user);
         userRepository.save(user);
         userAccountsRepository.save(userAccounts);
