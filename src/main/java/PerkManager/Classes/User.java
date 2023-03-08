@@ -1,7 +1,6 @@
 package PerkManager.Classes;
 
 import jakarta.persistence.*;
-import PerkManager.Classes.Perk;
 
 @Entity
 @Table(name = "user_profile") //this is requirerd or we will get a SQL jointable error.
@@ -9,20 +8,9 @@ public class User {
     private String username;
     private String password;
 
-
-    private Perk perk;
-
     @Id
     @GeneratedValue
     private Long ID;
-
-    public Perk getPerk() {
-        return perk;
-    }
-
-    public void setPerk(Perk perk) {
-        this.perk = perk;
-    }
 
     /* Constructors */
 
@@ -33,15 +21,13 @@ public class User {
         this.username = "";
         this.password = "";
         this.ID = null;
-        this.perk = null;
     }
 
     //Constructor#2 set username and password
-    public User (String username, String password, Perk perk) {
+    public User (String username, String password) {
         this();
         this.username = username;
         this.password = password;
-        this.perk = perk;
     }
 
     /* Methods */

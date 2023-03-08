@@ -19,23 +19,21 @@ public class StartJPAWebApplication {
     @Bean
     public CommandLineRunner demo(UserAccountsRepository userAccountsRepository, PerkListRepository perkListRepository) {
         return (args) -> {
-            Perk perk1 = new Perk("ontario", "AmazonCreditCard", "AmazonPrime", "10% on Movies");
-            Perk perk2 = new Perk("quebec", "TDCashBackCreditCard", "", "2.5% on tech");
-            PerkList perkList = new PerkList(1L);
-            perkList.addPerk(perk1);
-            perkList.addPerk(perk2);
-            perkListRepository.save(perkList);
-
-            User user1 = new User("admin", "password", perk1 );
-            User user2 = new User("someuser01", "1234", perk2);
-            User user3 = new User("someuser02", "1234", perk1);
+            User user1 = new User("admin", "password");
+            User user2 = new User("someuser01", "1234");
+            User user3 = new User("someuser02", "1234");
             UserAccounts userAccounts = new UserAccounts(1L); //f
             userAccounts.addUser(user1);
             userAccounts.addUser(user2);
             userAccounts.addUser(user3);
             userAccountsRepository.save(userAccounts);
 
-
+            Perk perk1 = new Perk("ontario", "AmazonCreditCard", "AmazonPrime", "10% on Movies");
+            Perk perk2 = new Perk("quebec", "TDCashBackCreditCard", "", "2.5% on tech");
+            PerkList perkList = new PerkList(1L);
+            perkList.addPerk(perk1);
+            perkList.addPerk(perk2);
+            perkListRepository.save(perkList);
         };
     }
 }
