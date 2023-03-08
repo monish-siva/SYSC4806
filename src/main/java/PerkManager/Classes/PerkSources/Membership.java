@@ -1,8 +1,8 @@
 package PerkManager.Classes.PerkSources;
 
 public enum Membership {
-    AmaricanExpress,
+    AmericanExpress,
     PCOptimum,
-    AirMiles
-
+    AirMiles,
+    AmazonPrime,
 }
