@@ -24,13 +24,13 @@ public class PerkRestController {
         this.perkListRepository = perkListRepository;
     }
 
-    @RequestMapping(value = "/perks", method = RequestMethod.GET)
+    @RequestMapping(value = "/Perk", method = RequestMethod.GET)
     public Perk getPerk(@RequestParam("perkId") Long perkID) {
         Perk perk = perkRepository.findByID(perkID);
         return perk;
     }
 
-    @RequestMapping(value = "/perks", method = RequestMethod.POST)
+    @RequestMapping(value = "/Perk", method = RequestMethod.POST)
     public Perk addPerk(@RequestParam String location, @RequestParam String card, @RequestParam String membership, @RequestParam String discount) {
         PerkList perkList = perkListRepository.findByID(1L);
         Perk perk = new Perk(location, card, membership, discount);

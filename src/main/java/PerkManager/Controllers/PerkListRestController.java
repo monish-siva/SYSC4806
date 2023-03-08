@@ -25,7 +25,7 @@ public class PerkListRestController {
         plRepository.save(perkList);
         return perkList;
     }
-    @RequestMapping(value = "/perkLists/1/perks", method = RequestMethod.GET)
+    @RequestMapping(value = "/perkList", method = RequestMethod.GET)
     public PerkList getPerkList(@RequestParam("id") Long id){
         return plRepository.findByID(id);
     }
