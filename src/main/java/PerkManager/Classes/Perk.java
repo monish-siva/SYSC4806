@@ -20,21 +20,23 @@ public class Perk {
 
     private String membership;
 
+    private String discount;
+
     /**
      * Default constructor
      */
     protected Perk(){
-        this.ID = null;
         this.location = "";
         this.card = "";
         this.membership = "";
+        this.discount = "";
     }
 
-    public Perk(String location, String card, String membership){
-        this();
+    public Perk(String location, String card, String membership, String discount){
         this.location = location;
         this.card = card;
         this.membership = membership;
+        this.discount = discount;
     }
 
     public String getLocation(){
@@ -53,6 +55,10 @@ public class Perk {
         return this.ID;
     }
 
+    public String getDiscount() {
+        return this.discount;
+    }
+
     public void setCard(String card) {
         this.card = card;
     }
@@ -67,5 +73,9 @@ public class Perk {
 
     public void setID(Long ID) {
         this.ID = ID;
+    }
+
+    public void setDiscount(String discount) {
+        this.discount = discount;
     }
 }
