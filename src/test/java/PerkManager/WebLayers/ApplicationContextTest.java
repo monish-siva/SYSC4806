@@ -1,5 +1,5 @@
-package anthonymp.SYSC4806_Lab3;
-/*
+package PerkManager.WebLayers;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 //https://spring.io/guides/gs/testing-web/
@@ -13,4 +13,4 @@ class ApplicationContextTest {
 	@Test
 	void contextLoads() {}
 
-}*/
+}
