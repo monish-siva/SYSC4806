@@ -50,7 +50,7 @@ public class WebPageController {
         UserAccounts.addUser(user);
         userRepository.save(user);
         userAccountsRepository.save(UserAccounts);
-        return "usert";
+        return "user";
     }
 
     @PostMapping("/addNewPerk")
