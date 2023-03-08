@@ -1,5 +1,6 @@
 package PerkManager.Controllers;
 
+import PerkManager.Classes.Perk;
 import PerkManager.Classes.User;
 import PerkManager.Classes.UserAccounts;
 import PerkManager.Repositorys.UserAccountsRepository;
@@ -9,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import java.util.List;
+import java.util.ArrayList;
 
 @Controller
 public class UserRestController {

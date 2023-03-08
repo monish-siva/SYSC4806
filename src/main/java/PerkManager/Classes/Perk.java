@@ -4,6 +4,4 @@ import PerkManager.Classes.PerkSources.*;
 
 public class Perk {
 
-
-
 }

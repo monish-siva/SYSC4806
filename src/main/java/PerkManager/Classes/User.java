@@ -1,12 +1,17 @@
 package PerkManager.Classes;
 
 import jakarta.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "user_profile") //this is requirerd or we will get a SQL jointable error.
 public class User {
     private String username;
     private String password;
+
+    @OneToMany (cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Perk> perks;
 
     @Id
     @GeneratedValue
@@ -21,6 +26,7 @@ public class User {
         this.username = "";
         this.password = "";
         this.ID = null;
+        this.perks = new ArrayList<Perk>();
     }
 
     //Constructor#2 set username and password
@@ -28,11 +34,21 @@ public class User {
         this();
         this.username = username;
         this.password = password;
+        this.perks = new ArrayList<Perk>();
     }
 
     /* Methods */
 
     //getter for username
+
+    public List<Perk> getPerk() {
+        return this.perks;
+    }
+
+    public void addPerk(Perk perk) {
+        this.perks.add(perk);
+    }
+
     public String getUsername() {
         return this.username;
     }

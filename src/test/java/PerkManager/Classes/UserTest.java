@@ -1,4 +1,4 @@
-package PerkManager;
+package PerkManager.Classes;
 
 import PerkManager.Classes.User;
 import org.junit.jupiter.api.Assertions;
