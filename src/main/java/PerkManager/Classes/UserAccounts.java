@@ -3,6 +3,7 @@ package PerkManager.Classes;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @Entity
@@ -30,7 +31,6 @@ public class UserAccounts {
     public void addUser(User user) {
         this.users.add(user);
     }
-
     public List<User> getUserAccounts(){
         return this.users;
     }
@@ -42,6 +42,18 @@ public class UserAccounts {
     public long getID(){
         return this.ID;
     }
+
+    public Long findUser(String username, String password){
+        for (User user: this.users){
+            if (user.getUsername().equals(username))
+                if (user.getPassword().equals(password))
+                    return user.getID();
+        }
+        System.out.println("0552 USER NOT FOUND");
+        return null;
+    }
+
+    //public User findUser
 
     public void setID(Long id) {
         this.ID = id;

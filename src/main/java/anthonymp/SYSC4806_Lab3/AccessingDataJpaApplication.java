@@ -11,7 +11,7 @@ import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
-/*
+
 @SpringBootApplication
 public class AccessingDataJpaApplication {
 
@@ -42,7 +42,7 @@ public class AccessingDataJpaApplication {
 
 
 
-
+/*
 
         @Bean
         public CommandLineRunner demo(BuddyInfoRepository buddyRepository, AddressBookRepository abRepository) {
@@ -110,6 +110,6 @@ public class AccessingDataJpaApplication {
 
             log.info("");
 
-            };
+            };*/
     }
-}*/
+}

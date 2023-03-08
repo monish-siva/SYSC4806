@@ -18,14 +18,24 @@ public class WebPageController {
         this.userAccountsRepository = userAccountsRepository;
         this.userRepository = userRepository;
     }
-    @GetMapping("/tbd")
-    public String userForm(Model model) {
+    @GetMapping("/PerkManager")
+    public void frontPage() {}
+
+    @GetMapping("/Register")
+    public String newUserForm(Model model) {
         model.addAttribute("UserAccounts", new UserAccounts());
         model.addAttribute("user", new User());
-        return "tbd";
+        return "Register";
     }
-    @PostMapping("/registerNewUser")
-    public String userSubmit(@ModelAttribute("buddy") User user) {
+
+    @GetMapping("/Login")
+    public String userLogin(Model model) {
+        model.addAttribute("UserAccounts", new UserAccounts());
+        model.addAttribute("userProfile", new User());
+        return "Login";
+    }
+    @PostMapping("/newUserInfoPage")
+    public String userSubmit(@ModelAttribute("user") User user) {
         UserAccounts UserAccounts = userAccountsRepository.findByID(1L);
         UserAccounts.addUser(user);
         userRepository.save(user);
@@ -33,9 +43,22 @@ public class WebPageController {
         return "user";
     }
 
+    @PostMapping("/userProfilePage")
+    //public String userLogin(@ModelAttribute("userProfile") User user) {
+    public String userLogin(User user,Model model) {
+        UserAccounts UserAccounts = userAccountsRepository.findByID(1L);
+        Long currentUserID = UserAccounts.findUser(user.getUsername(),user.getPassword());
+        User currentUser = UserAccounts.getUserByID(currentUserID-1);
+        //userRepository.save(currentUser);
+        //userAccountsRepository.save(UserAccounts);
+        model.addAttribute("userProfile", currentUser);
+        return "userProfile";
+    }
+
     /*@PostMapping("/removeUser")
     public String removeUser(@RequestParam Long UserAccountsID, Long userID) {
     }*/
+
     @PostMapping("/addNewUserAccount")
     public String userAccountSubmit(Model model) {
         if (userAccountsRepository.findByID(1L) == null) {
