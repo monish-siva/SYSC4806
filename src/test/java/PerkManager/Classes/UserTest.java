@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 class UserTest {
     @Test
     void getUsername() {
-//        User user = new User("Bob", "password");
-//        Assertions.assertEquals("Bob", user.getUsername());
+        User user = new User("Bob", "password");
+        Assertions.assertEquals("Bob", user.getUsername());
     }
 
     @Test
@@ -20,8 +20,8 @@ class UserTest {
 
     @Test
     void getPassword() {
-//        User user = new User("Bob", "password");
-//        Assertions.assertEquals("password", user.getPassword());
+        User user = new User("Bob", "password");
+        Assertions.assertEquals("password", user.getPassword());
     }
 
     @Test
