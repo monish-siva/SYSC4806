@@ -33,10 +33,8 @@ public class StartJPAWebApplication {
             User user1 = new User("admin", "password");
             user1.addPerk(perk1);
             User user2 = new User("someuser01", "1234");
-            user2.addPerk(perk1);
-            user2.addPerk(perk1);
+            user2.addPerk(perk2);
             User user3 = new User("someuser02", "1234");
-            user3.addPerk(perk2);
             UserAccounts userAccounts = new UserAccounts(1L); //f
             userAccounts.addUser(user1);
             userAccounts.addUser(user2);
