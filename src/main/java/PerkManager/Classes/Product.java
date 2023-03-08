@@ -13,8 +13,6 @@ public class Product {
     @GeneratedValue
     private Long ID;
 
-
-
     public Product(){
 
     }
