@@ -28,8 +28,6 @@ public class StartJPAWebApplication {
             perkList.addPerk(perk2);
             perkListRepository.save(perkList);
 
-
-
             User user1 = new User("admin", "password");
             user1.addPerk(perk1);
             User user2 = new User("someuser01", "1234");
