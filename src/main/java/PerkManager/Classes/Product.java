@@ -24,14 +24,15 @@ public class Product {
     //Default-No-Argument-Constructor
     //Default Constructor.
     public Product(){
-        this.name="";
-        this.perks=new ArrayList<>();
+        this.name = "";
+        this.perks = new ArrayList<>();
+        this.ID = null;
     }
 
     //Constructor with name argument
     public Product(String name){
-        this.name="";
-        this.perks=new ArrayList<>();
+        this();
+        this.name = name;
     }
 
     //method that gets the name of the product
