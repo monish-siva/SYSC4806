@@ -18,8 +18,12 @@
   <input type="submit" value="Login" />
 </form>
 
-<form action="http://localhost:8080/tbd">
-  <input type="submit" value="Continue As Guest" />
+<form action="http://localhost:8080/availablePerksPage">
+  <input type="submit" value="See Available Perks" />
+</form>
+
+<form th:action="@{/availablePerksPage}" th:object="${PerkList}" method="post">
+  <input type="submit" value="See Available Perks" />
 </form>
 
 </body>
