@@ -19,15 +19,16 @@ public class PerkListRestController {
 
         this.plRepository = plRepository;
     }
-    @RequestMapping("/perkList")
+    @RequestMapping("/PerkList")
     public PerkList createUserAccount(){
         PerkList perkList = new PerkList();
         plRepository.save(perkList);
         return perkList;
     }
-    @RequestMapping(value = "/perkLists", method = RequestMethod.GET)
+    @RequestMapping(value = "/PerkList", method = RequestMethod.GET)
     public PerkList getPerkList(@RequestParam("id") Long id){
         return plRepository.findByID(id);
     }
 
 }
+

@@ -37,7 +37,6 @@ public class WebPageController {
     public String newUserForm(Model model) {
         model.addAttribute("UserAccounts", new UserAccounts());
         model.addAttribute("user", new User());
-        model.addAttribute("PerkList", new PerkList());
         return "Register";
     }
 
@@ -47,6 +46,25 @@ public class WebPageController {
         model.addAttribute("userProfile", new User());
         return "Login";
     }
+
+    @GetMapping("/availablePerksPage")
+    public String perksPage(Model model) {
+        model.addAttribute("PerkList", new PerkList());
+        return "PerkList";
+    }
+
+    @PostMapping ("/availablePerksPage")
+    public String availablePerksPage(Model model) {
+        if (perkListRepository.findByID(1L) == null) {
+            perkListRepository.save(new PerkList());
+        }
+        PerkList perkList = perkListRepository.findByID(1L);
+        model.addAttribute("PerkList", perkList);
+        return "PerkList";
+    }
+
+
+
     @PostMapping("/newUserInfoPage")
     public String userSubmit(@ModelAttribute("user") User user) {
         UserAccounts UserAccounts = userAccountsRepository.findByID(1L);
@@ -81,11 +99,11 @@ public class WebPageController {
         return "userProfile";
     }
 
-    @PostMapping("/availablePerksPage")
+    @PostMapping("/availablePerks")
     public String availablePerks(Model model) {
         PerkList perkList = perkListRepository.findByID(1L);
-        model.addAttribute("PerkList", perkList);
-        return "PerkList";
+        model.addAttribute("perkLists", perkList);
+        return "perkLists";
     }
 
     /*@PostMapping("/removeUser")

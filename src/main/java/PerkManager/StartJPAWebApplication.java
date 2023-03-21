@@ -22,11 +22,12 @@ public class StartJPAWebApplication {
     public CommandLineRunner demo(UserAccountsRepository userAccountsRepository, PerkListRepository perkListRepository) {
         return (args) -> {
             Perk perk1 = new Perk("ontario", "AmazonCreditCard", "AmazonPrime", "10% on Movies");
-            Perk perk3 = new Perk("ontario2", "AmazonCreditCard2", "AmazonPrime2", "10% on Movies2");
+            Perk perk3 = new Perk("Toronto", "PC MasterCard", "PC Optimum", "1% of all purchases refunded as points");
             Perk perk2 = new Perk("quebec", "TDCashBackCreditCard", "", "2.5% on tech");
             PerkList perkList = new PerkList(1L);
             perkList.addPerk(perk1);
             perkList.addPerk(perk2);
+            perkList.addPerk(perk3);
 
 
             User user1 = new User("admin", "password");
