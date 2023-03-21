@@ -2,7 +2,7 @@ $(document).ready(function () {
 
 
 
-    $.ajax({
+    /*$.ajax({
         url: "http://localhost:8080/addressBook?id=1"
     }).then(function (data) {
         if (data) {
@@ -11,16 +11,16 @@ $(document).ready(function () {
                 $('.addressbook-contents').append("name: " + data.contacts[i].name + ", ").append("Phone Number: " + data.contacts[i].phoneNumber).append("<br>");
             }
         }
-    });
+    });*/
 
     $.ajax({
-        url: "http://localhost:8080/user?id=1"
+        url: "http://localhost:8080/User?id=1"
     }).then(function (data) {
         if (data) {
-            $('.perk-id').append("Address Book ID: " + (this).serialize());
-            /*for (i = 0; i < data.perks.length; i++) {
+            $('.perk-id').append("Perk#" + (this).serialize());
+            for (i = 0; i < data.perks.length; i++) {
                 $('.perk-contents').append("name: " + data.perks[i].location + ", ").append("Card: " + data.perks[i].card).append("membership: " + data.perks[i].membership).append("discount: " + data.perks[i].discount).append("<br>");
-            }*/
+            }
         }
     });
 

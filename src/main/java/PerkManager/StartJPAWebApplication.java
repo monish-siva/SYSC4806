@@ -22,14 +22,16 @@ public class StartJPAWebApplication {
     public CommandLineRunner demo(UserAccountsRepository userAccountsRepository, PerkListRepository perkListRepository) {
         return (args) -> {
             Perk perk1 = new Perk("ontario", "AmazonCreditCard", "AmazonPrime", "10% on Movies");
+            Perk perk3 = new Perk("ontario2", "AmazonCreditCard2", "AmazonPrime2", "10% on Movies2");
             Perk perk2 = new Perk("quebec", "TDCashBackCreditCard", "", "2.5% on tech");
             PerkList perkList = new PerkList(1L);
             perkList.addPerk(perk1);
             perkList.addPerk(perk2);
-            perkListRepository.save(perkList);
+
 
             User user1 = new User("admin", "password");
-            user1.addPerk(perk1);
+            user1.addPerk(perk1); //It was found that you can't add perk1 muntiple times since it has a unique primary key ID which would cause a table violation.
+            user1.addPerk(perk3);
             User user2 = new User("someuser01", "1234");
             user2.addPerk(perk2);
             User user3 = new User("someuser02", "1234");
@@ -37,6 +39,8 @@ public class StartJPAWebApplication {
             userAccounts.addUser(user1);
             userAccounts.addUser(user2);
             userAccounts.addUser(user3);
+
+            perkListRepository.save(perkList);
             userAccountsRepository.save(userAccounts);
 
 
