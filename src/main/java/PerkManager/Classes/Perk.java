@@ -21,6 +21,7 @@ public class Perk {
     private String membership;
 
     private String discount;
+    private int votes;
 
     /**
      * Default constructor
@@ -30,6 +31,7 @@ public class Perk {
         this.card = "";
         this.membership = "";
         this.discount = "";
+        this.votes = 0;
     }
 
     public Perk(String location, String card, String membership, String discount){
@@ -37,6 +39,7 @@ public class Perk {
         this.card = card;
         this.membership = membership;
         this.discount = discount;
+        this.votes = 0;
     }
 
     public String getLocation(){
@@ -59,6 +62,10 @@ public class Perk {
         return this.discount;
     }
 
+    public int getVotes(){
+        return this.votes;
+    }
+
     public void setCard(String card) {
         this.card = card;
     }
@@ -77,5 +84,13 @@ public class Perk {
 
     public void setDiscount(String discount) {
         this.discount = discount;
+    }
+
+    public void upVote(){
+        this.votes++;
+    }
+
+    public void downVote(){
+        this.votes--;
     }
 }
