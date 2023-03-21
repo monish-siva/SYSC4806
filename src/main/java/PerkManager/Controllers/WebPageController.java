@@ -74,7 +74,7 @@ public class WebPageController {
         PerkList perkList = perkListRepository.findByID(1L);
 
         List<Perk> perks =UserAccounts.getUserByID(currentUserID-1).getPerk();
-        model.addAttribute("PerkList", perks.get(0));
+        model.addAttribute("PerkList", perks.get(1));
         return "userProfile";
     }
 

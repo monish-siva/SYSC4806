@@ -19,5 +19,23 @@
 <p th:text="'Perk membership(s): ' + ${PerkList.membership}" ></p>
 <p th:text="'Current discount(s): ' + ${PerkList.discount}" ></p>
 <a href="/PerkManager">GO BACK</a>
+
+
+
+<script>
+    var wrapper = document.getElementById("perks-id");
+
+    var myHTML = '';
+
+    for (var i = 0; i < 10; i++) {
+        myHTML += '<span class="test">Testing out my script! loop #' + (i + 1) + '</span><br/><br/>';
+    }
+
+    wrapper.perks-id" = myHTML
+
+</script>
+
+<div id="perks-id"></div>
+
 </body>
 </html>
