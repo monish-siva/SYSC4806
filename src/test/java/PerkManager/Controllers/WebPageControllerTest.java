@@ -60,18 +60,4 @@ class WebPageControllerTest {
                 .andExpect(model().attributeExists("UserAccounts"))
                 .andExpect(model().attributeExists("userProfile"));
     }
-
-    @Test
-    void userSubmit() throws Exception {
-        
-    }
-
-    @Test
-    void testUserLogin() throws Exception {
-
-    }
-
-    @Test
-    void userAccountSubmit() {
-    }
 }
