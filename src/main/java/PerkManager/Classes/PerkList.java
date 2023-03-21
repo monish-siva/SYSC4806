@@ -39,6 +39,8 @@ public class PerkList {
         return this.ID;
     }
 
+    public int getPerkListLength() { return this.perks.size();}
+
     public Perk getPerkByID(Long id){
         return this.perks.get(Math.toIntExact(id));
     }

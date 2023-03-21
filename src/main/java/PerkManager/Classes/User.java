@@ -11,7 +11,7 @@ public class User {
     private String password;
 
     @OneToMany (cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Perk> perks;
+    public List<Perk> perks;
 
     @Id
     @GeneratedValue
