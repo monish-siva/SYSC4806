@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title> </title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1 style="background-color:Tomato;">All Available Perks</h1>
+<p th:each="perk : ${PerkList.perks}">
+  Location: <b><span th:text="${perk.location}"/></b>
+  Card: <b><span th:text="${perk.card}"/></b>
+  MemberShip: <b><span th:text="${perk.membership}"/></b>
+  discount: <b><span th:text="${perk.discount}"/></b>
+</p>
+
+
+</p>
+<a href="/PerkManager">GO BACK</a>
+</body>
+</html>

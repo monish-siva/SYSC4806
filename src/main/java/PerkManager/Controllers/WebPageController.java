@@ -37,6 +37,7 @@ public class WebPageController {
     public String newUserForm(Model model) {
         model.addAttribute("UserAccounts", new UserAccounts());
         model.addAttribute("user", new User());
+        model.addAttribute("PerkList", new PerkList());
         return "Register";
     }
 
@@ -78,6 +79,13 @@ public class WebPageController {
         model.addAttribute("PerkList", perks);
         model.addAttribute("PerkListLength", size);
         return "userProfile";
+    }
+
+    @PostMapping("/availablePerksPage")
+    public String availablePerks(Model model) {
+        PerkList perkList = perkListRepository.findByID(1L);
+        model.addAttribute("PerkList", perkList);
+        return "PerkList";
     }
 
     /*@PostMapping("/removeUser")
