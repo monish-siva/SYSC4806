@@ -72,6 +72,7 @@ public class WebPageController {
         return "perks";
     }
 
+
     @PostMapping("/PerkSearch")
     public String pSearchSubmit(Model model, Perk perk){
         UserAccounts UserAccounts = userAccountsRepository.findByID(1L);
@@ -168,5 +169,24 @@ public class WebPageController {
         PerkList perkList = perkListRepository.findByID(1L);
         model.addAttribute("PerkList", perkList);
         return "perkList";
+    }
+
+    @PutMapping(value = "/availablePerksPage")
+    public String upVotePerks(@ModelAttribute("perk") Perk perk) {
+        Perk perks = perkRepository.findByID(perk.getID());
+        perks.upVote();
+        perkRepository.save(perks);
+        //model.addAttribute("perk", perk);
+        return "PerkList";
+    }
+
+    @PatchMapping("/availablePerksPage")
+    public String downVotePerks(@ModelAttribute("perk") Perk perk) {
+        //Perk perk = perkRepository.findByID(1L);
+        Perk perks = perkRepository.findByID(perk.getID());
+        perks.downVote();
+        perkRepository.save(perks);
+        //model.addAttribute("perk", perk);
+        return "redirect:/availablePerksPage";
     }
 }
