@@ -142,22 +142,25 @@ public class WebPageController {
         return "perkList";
     }
 
-    @PostMapping("/upVote")
-    public String upVotePerks(@ModelAttribute("perk") Perk perk) {
+    @PostMapping("/upVotePerks")
+    public String upVotePerks(@ModelAttribute("PerkList") Perk perk) {
+        PerkList PerkList = perkListRepository.findByID(1L);
         Perk perks = perkRepository.findByID(perk.getID());
+        PerkList.getPerkByID(perk.getID()).upVote();
         perks.upVote();
+
         perkRepository.save(perks);
-        //model.addAttribute("perk", perk);
-        return "PerkList";
+        perkListRepository.save(PerkList);
+        return "perks";
     }
 
-    @PostMapping("/downVote")
-    public String downVotePerks(@ModelAttribute("perk") Perk perk) {
+    @PostMapping("/downVotePerks")
+    public String downVotePerks(Perk perk) {
         //Perk perk = perkRepository.findByID(1L);
         Perk perks = perkRepository.findByID(perk.getID());
         perks.downVote();
         perkRepository.save(perks);
         //model.addAttribute("perk", perk);
-        return "PerkList";
+        return "perks";
     }
 }
