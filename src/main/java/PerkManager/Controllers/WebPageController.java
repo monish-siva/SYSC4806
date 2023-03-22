@@ -65,7 +65,7 @@ public class WebPageController {
         return "perks";
     }
 
-    @PostMapping ("/availablePerksPage")
+    @PostMapping (value = "/availablePerksPage")
     public String availablePerksPage(Model model) {
         if (perkListRepository.findByID(1L) == null) {
             perkListRepository.save(new PerkList());
@@ -142,7 +142,7 @@ public class WebPageController {
         return "perkList";
     }
 
-    @PostMapping("/upVote")
+    @PutMapping(value = "/availablePerksPage")
     public String upVotePerks(@ModelAttribute("perk") Perk perk) {
         Perk perks = perkRepository.findByID(perk.getID());
         perks.upVote();
@@ -151,13 +151,13 @@ public class WebPageController {
         return "PerkList";
     }
 
-    @PostMapping("/downVote")
+    @PatchMapping("/availablePerksPage")
     public String downVotePerks(@ModelAttribute("perk") Perk perk) {
         //Perk perk = perkRepository.findByID(1L);
         Perk perks = perkRepository.findByID(perk.getID());
         perks.downVote();
         perkRepository.save(perks);
         //model.addAttribute("perk", perk);
-        return "PerkList";
+        return "redirect:/availablePerksPage";
     }
 }

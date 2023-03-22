@@ -26,13 +26,13 @@
   MemberShip: <b><span th:text="${perk.membership}"/></b>
   discount: <b><span th:text="${perk.discount}"/></b>
   Votes: <b><span th:text="${perk.votes}"/></span></b><br><br>
-  <form th:action="@{/upVote}" th:object="${perk}" method="post">
+  <form action="http://localhost:8080/upvote">
     <input type="submit" value="Upvote" />
   </form>
-  <form th:action="@{/downVote}" th:object="${perk}" method="post">
+  <form action="http://localhost:8080/downvote">
     <input type="submit" value="Downvote" />
   </form>
-  <button type="submit" th:onclick="$">Upvote</button>
+  <button type="submit" >Upvote</button>
   <button type="submit">Downvote</button>
 </p>
 
