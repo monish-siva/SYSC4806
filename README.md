@@ -13,6 +13,10 @@
 - Test all new classes
 - Create integration tests for controllers
 - Implement Svelte
+
+### Svelte Research:
+https://docs.google.com/document/d/1vb8M9qReN6u99IAUqcpHyuDim7mkUhjKErqQ5f5sS2c/edit?usp=sharing
+
 ### Schema:
 
 ![image](https://user-images.githubusercontent.com/63323924/223807295-7d8e55eb-4b10-43ab-a597-9060f4ed45f4.png)
