@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
   <link rel="stylesheet" href="formating.css">
   <title> </title>
@@ -20,6 +20,7 @@
   <br>
   <br>
 <h1 style="background-color:Tomato;">All Available Perks</h1>
+
 <p th:each="perk : ${PerkList.getPerks()}">
   Location: <b><span th:text="${perk.location}"/></b>
   Card: <b><span th:text="${perk.card}"/></b>
@@ -34,9 +35,6 @@
   </form>
   <button type="submit" >Upvote</button>
   <button type="submit">Downvote</button>
-</p>
-
-
 </p>
 <a href="/PerkManager">GO BACK</a>
   </div>
