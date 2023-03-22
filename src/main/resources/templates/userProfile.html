@@ -1,29 +1,43 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link rel="stylesheet" href="formating.css">
     <title>Getting Started: Handling Form Submission</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="ajax.js"></script>
 </head>
 <body>
+<div class = centreNoBorder>
 <h1 style="background-color:Tomato;">Account Overview</h1>
-<p th:text="'User Name: ' + ${userProfile.username}" ></p>
-<p th:text="'Password : ' + ${userProfile.password}" ></p>
-<p th:text="'Id       : ' + ${userProfile.ID}" ></p>
+<p th:text="'You are loged in as: ' + ${userProfile.username}" ></p>
+
+
+    <br>
+    <hr class="rounded">
+
 <p th:text="'Current Perk(s): '" ></p>
-<p th:text="'Perk Location(s) ' + ${PerkList.size()}" ></p>
 
 <p th:each="perk : ${userProfile.perks}">
-    Location: <b><span th:text="${perk.location}"/></b>
-    Card: <b><span th:text="${perk.card}"/></b>
-    MemberShip: <b><span th:text="${perk.membership}"/></b>
-    discount: <b><span th:text="${perk.discount}"/></b>
+    Perk Number: <b style="background-color:yellowgreen;"><span  th:text="${perk}"/></b><br>
+    Location: <b><span th:text="${perk.location}"/></b><br>
+    Card: <b><span th:text="${perk.card}"/></b><br>
+    MemberShip: <b><span th:text="${perk.membership}"/></b><br>
+    discount: <b><span th:text="${perk.discount}"/></b><br>
+    Votes: <b><span th:text="${perk.votes}"/></span></b><br><br>
 </p>
+    <hr class="rounded">
+    <form action="http://localhost:8080/tbd">
+        <input type="submit" value="Add A New Card and Membership" />
+    </form>
 
-
+    <form th:action="@{/availablePerksPage}" th:object="${PerkList}" method="post">
+        <input type="submit" value="See Available Perks" />
+    </form>
+<br><br>
 
 
 <a href="/PerkManager">GO BACK</a>
+</div>
 </body>
 </html>

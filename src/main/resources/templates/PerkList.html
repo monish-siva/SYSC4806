@@ -1,10 +1,24 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
+  <link rel="stylesheet" href="formating.css">
   <title> </title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+
+<div class = centreNoBorder>
+
+<h1 style="background-color:Yellow;">Create A New Perk</h1>
+
+  <form action="http://localhost:8080/createNewPerk">
+    <input type="submit" value="See Available Perks" />
+  </form>
+
+<br>
+  <hr class="rounded">
+  <br>
+  <br>
 <h1 style="background-color:Tomato;">All Available Perks</h1>
 
 <p th:each="perk : ${PerkList.getPerks()}">
@@ -12,7 +26,9 @@
   Card: <b><span th:text="${perk.card}"/></b>
   MemberShip: <b><span th:text="${perk.membership}"/></b>
   discount: <b><span th:text="${perk.discount}"/></b>
+  Votes: <b><span th:text="${perk.votes}"/></span></b><br><br>
 </p>
 <a href="/PerkManager">GO BACK</a>
+  </div>
 </body>
 </html>
