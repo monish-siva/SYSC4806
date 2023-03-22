@@ -12,27 +12,18 @@
 
 <h2 style="background-color:Tomato;">Perk Search</h2>
 
-<form action="/action_page.php">
-  <input type="search" id="PSEARCH" name="name">
+<form>
+  <input type="search" id="perkSearch" name="perks">
 </form>
-
-<p>Get the above element value by clicking the below button</p>
 <button onclick="getValue()">Get Value</button>
 <p id="Sample"></p>
-
 <script>
   function getValue() {
-    var t = document.getElementById("PSEARCH").value;
-    document.getElementById("Sample").innerHTML = "The value for the input field is : "+t;
+    var t = document.getElementById("perkSearch").value;
+    document.getElementById("Sample").innerHTML = "Value Entered: "+t;
   }
-
 </script>
 
-<p th:each="perk: ${PerkList.getCard().equalsIgnoreCase(perks.)}">
-
-</p>
-
-<a href="/PerkManager">GO BACK</a>
 </body>
 </html>
 
