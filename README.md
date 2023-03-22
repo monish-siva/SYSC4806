@@ -6,6 +6,7 @@
 - Able to create and save users and user accounts 
 - Able to register and login a user account from a browser
 - Able to add perks to user
+- Perks now have votes attached to it
 - Able to view all the perks
 - HTML for Upvoting/Downvoting/Search perks exists, but the functionality is not fully completed yet
 - All model classes are tested
