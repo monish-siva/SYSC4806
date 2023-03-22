@@ -13,8 +13,8 @@ $(document).ready(function () {
         }
     });*/
 
-    $.ajax({
-        url: "http://localhost:8080/User?id=1"
+    /*$.ajax({
+        url: "http://localhost:8080/PerkList?id=1"
     }).then(function (data) {
         if (data) {
             $('.perk-id').append("Perk#" + (this).serialize());
@@ -22,9 +22,9 @@ $(document).ready(function () {
                 $('.perk-contents').append("name: " + data.perks[i].location + ", ").append("Card: " + data.perks[i].card).append("membership: " + data.perks[i].membership).append("discount: " + data.perks[i].discount).append("<br>");
             }
         }
-    });
+    });*/
 
-    /*$(function() {
+    $(function() {
         $('#addNewBuddyForm').submit(function(e) {
             e.preventDefault();
 
@@ -40,7 +40,7 @@ $(document).ready(function () {
             });
 
         });
-    })*/
+    })
 
 
 

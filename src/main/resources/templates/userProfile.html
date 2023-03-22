@@ -19,7 +19,7 @@
 <p th:text="'Current Perk(s): '" ></p>
 
 <p th:each="perk : ${userProfile.perks}">
-    Perk Number: <b style="background-color:yellowgreen;"><span  th:text="${perk}"/></b><br>
+    <b style="background-color:yellowgreen;">Perk Details:</b><br>
     Location: <b><span th:text="${perk.location}"/></b><br>
     Card: <b><span th:text="${perk.card}"/></b><br>
     MemberShip: <b><span th:text="${perk.membership}"/></b><br>
@@ -27,7 +27,7 @@
     Votes: <b><span th:text="${perk.votes}"/></span></b><br><br>
 </p>
     <hr class="rounded">
-    <form action="http://localhost:8080/tbd">
+    <form action="http://localhost:8080/">
         <input type="submit" value="Add A New Card and Membership" />
     </form>
 
