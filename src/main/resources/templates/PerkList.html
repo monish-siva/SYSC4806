@@ -9,15 +9,17 @@
 
 <div class = centreNoBorder>
 
-<h1 style="background-color:Blue;">Create A New Perk</h1><br><br><br>
-<form action="http://localhost:8080/createNewPerk">
-  <input type="submit" value="Create A New Perk" />
-</form>
+<h1 style="background-color:Yellow;">Create A New Perk</h1>
+
+  <form action="http://localhost:8080/createNewPerk">
+    <input type="submit" value="See Available Perks" />
+  </form>
+
 <br>
   <hr class="rounded">
   <br>
   <br>
-<h1 style="background-color:Tomato;">All Available Perks</h1><br><br><br>
+<h1 style="background-color:Tomato;">All Available Perks</h1>
 <p th:each="perk : ${PerkList.getPerks()}">
   Location: <b><span th:text="${perk.location}"/></b>
   Card: <b><span th:text="${perk.card}"/></b>

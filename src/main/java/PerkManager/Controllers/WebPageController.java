@@ -53,10 +53,16 @@ public class WebPageController {
         return "PerkSearch";
     }
 
-    @GetMapping("/availablePerksPage")
+   /*@GetMapping("/availablePerksPage")
     public String perksPage(Model model) {
         model.addAttribute("PerkList", new PerkList());
         return "PerkList";
+    }*/
+
+    @GetMapping("/createNewPerk")
+    public String newPerksPage(Model model) {
+        model.addAttribute("perks", new Perk());
+        return "perks";
     }
 
     @PostMapping ("/availablePerksPage")
@@ -80,13 +86,13 @@ public class WebPageController {
         return "user";
     }
 
-    @PostMapping("/addNewPerk")
-    public String perkSubmit(@ModelAttribute("perk") Perk perks) {
+    @PostMapping("/createNewPerk")
+    public String createNewPerk(@ModelAttribute("perks") Perk perks) {
         PerkList PerkList = perkListRepository.findByID(1L);
         PerkList.addPerk(perks);
         perkRepository.save(perks);
         perkListRepository.save(PerkList);
-        return "perk";
+        return "perks";
     }
 
     @PostMapping("/userProfilePage")
