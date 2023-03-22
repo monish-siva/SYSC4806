@@ -129,4 +129,23 @@ public class WebPageController {
         model.addAttribute("PerkList", perkList);
         return "perkList";
     }
+
+    @PostMapping("/upVote")
+    public String upVotePerks(@ModelAttribute("perk") Perk perk) {
+        Perk perks = perkRepository.findByID(perk.getID());
+        perks.upVote();
+        perkRepository.save(perks);
+        //model.addAttribute("perk", perk);
+        return "perk";
+    }
+
+    @PostMapping("/downVote")
+    public String downVotePerks(@ModelAttribute("perk") Perk perk) {
+        //Perk perk = perkRepository.findByID(1L);
+        Perk perks = perkRepository.findByID(perk.getID());
+        perks.downVote();
+        perkRepository.save(perks);
+        //model.addAttribute("perk", perk);
+        return "perk";
+    }
 }
