@@ -49,7 +49,8 @@ public class WebPageController {
 
     @GetMapping("/PerkSearch")
     public String perkSearch(Model model){
-        model.addAttribute("Search", new PerkList());
+        model.addAttribute("perkList", new PerkList());
+        model.addAttribute("perks", new Perk());
         return "PerkSearch";
     }
 
@@ -57,6 +58,27 @@ public class WebPageController {
     public String perksPage(Model model) {
         model.addAttribute("PerkList", new PerkList());
         return "PerkList";
+    }
+
+    @PostMapping("/PerkSearch")
+    public String pSearchSubmit(Model model, Perk perk, Long ID){
+        UserAccounts UserAccounts = userAccountsRepository.findByID(1L);
+        PerkList PerkList = perkListRepository.findByID(1L);
+
+        Long currentPerkID = PerkList.findPerk(perk.getCard());
+
+
+        Perk currentPerk = PerkList.getPerkByID(currentPerkID - 1);
+
+        model.addAttribute("Perks", currentPerk);
+
+        PerkList perkList = perkListRepository.findByID(1L);
+
+        Perk perky = PerkList.getPerkByID(ID);
+
+        model.addAttribute("PerkList", perky);
+
+        return "PerkSearch";
     }
 
     @PostMapping ("/availablePerksPage")

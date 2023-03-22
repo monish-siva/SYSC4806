@@ -49,4 +49,13 @@ public class PerkList {
         this.ID = id;
     }
 
+    public Long findPerk(String cardName){
+        for (Perk perk: this.perks){
+            if (perk.getCard().equals(cardName))
+                return perk.getID();
+        }
+        System.out.println("0552 USER NOT FOUND");
+        return null;
+    }
+
 }
