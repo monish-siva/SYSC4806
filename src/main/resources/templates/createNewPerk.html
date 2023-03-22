@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" href="formating.css">
+  <title>Getting Started: Handling Form Submission</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="ajax.js"></script>
+</head>
+<body>
+
+<div class = centreNoBorder>
+<h2 style="background-color:Tomato;">Create a New Perk</h2>
+<form id="addNewPerkForm" action="#" th:action="@{/newPerkPage}" th:object="${perk}" method="post">
+  <p>Perk Location  : <input type="text" th:field="*{location}" id="perkLocation" /></p>
+  <p>Perk Card      :  <input type="text" th:field="*{card}" id="perkCard" /></p>
+  <p>Perk MemberShip:  <input type="text" th:field="*{membership}" id="perkMembership" /></p>
+  <p>Perk Discount  :  <input type="text" th:field="*{discount}" id="perkDiscount" /></p>
+  <p><input type="submit" value="Submit" class="submit" />
+</form>
+
+<br><br><br>
+<a href="/PerkList">GO BACK</a>
+</div>>
+</body>
+</html>

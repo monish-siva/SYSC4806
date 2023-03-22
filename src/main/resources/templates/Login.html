@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link rel="stylesheet" href="formating.css">
     <title>Getting Started: Handling Form Submission</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -8,7 +9,7 @@
 </head>
 <body>
 
-
+<div class = centreNoBorder>
 <h2 style="background-color:Tomato;">Login To User Account</h2>
 
 <form id="" action="#" th:action="@{/userProfilePage}" th:object="${userProfile}" method="post">
@@ -17,6 +18,6 @@
     <p><input type="submit" value="Submit" class="submit" />
 </form>
 
-
+</div>
 </body>
 </html>
