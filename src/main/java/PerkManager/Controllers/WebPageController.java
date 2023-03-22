@@ -1,9 +1,6 @@
 package PerkManager.Controllers;
 
-import PerkManager.Classes.Perk;
-import PerkManager.Classes.PerkList;
-import PerkManager.Classes.User;
-import PerkManager.Classes.UserAccounts;
+import PerkManager.Classes.*;
 import PerkManager.Repositorys.PerkListRepository;
 import PerkManager.Repositorys.PerkRepository;
 import PerkManager.Repositorys.UserAccountsRepository;
@@ -11,6 +8,7 @@ import PerkManager.Repositorys.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -48,9 +46,18 @@ public class WebPageController {
     }
 
     @GetMapping("/PerkSearch")
-    public String perkSearch(Model model){
-        model.addAttribute("Search", new PerkList());
-        return "PerkSearch";
+    public String perkSearch(Model model, @ModelAttribute("PerkList")
+    MyFormObject mfo, BindingResult result) {
+        PerkList pL = new PerkList();
+            Long perks = pL.findPerk(mfo.getPName());
+            model.addAttribute("search", perks);
+            return "PerkSearch";
+
+//        model.addAttribute("perkList", new PerkList());
+//        model.addAttribute("perks", new Perk());
+//        return "PerkSearch";
+
+
     }
 
    /*@GetMapping("/availablePerksPage")
@@ -63,6 +70,27 @@ public class WebPageController {
     public String newPerksPage(Model model) {
         model.addAttribute("perks", new Perk());
         return "perks";
+    }
+
+    @PostMapping("/PerkSearch")
+    public String pSearchSubmit(Model model, Perk perk){
+        UserAccounts UserAccounts = userAccountsRepository.findByID(1L);
+        PerkList PerkList = perkListRepository.findByID(1L);
+
+        Long currentPerkID = PerkList.findPerk(perk.getCard());
+
+
+        Perk currentPerk = PerkList.getPerkByID(currentPerkID - 1);
+
+        model.addAttribute("Perks", currentPerk);
+
+        PerkList perkList = perkListRepository.findByID(1L);
+
+        Perk perky = PerkList.getPerkByID(currentPerkID-1);
+
+        model.addAttribute("PerkList", perky);
+
+        return "PerkSearch";
     }
 
     @PostMapping ("/availablePerksPage")

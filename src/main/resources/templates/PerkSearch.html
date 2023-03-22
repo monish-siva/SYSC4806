@@ -1,28 +1,38 @@
 <!DOCTYPE HTML>
+
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+  <title>Perk Handler </title>
+
   <link rel="stylesheet" href="formating.css">
   <title>Perk Search</title>
+
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="ajax.js"></script>
 </head>
 <body>
 
+
 <div class = centreNoBorder>
 <h2 style="background-color:Tomato;">Perk Search</h2>
-<form action="#" th:action = "@{/PerkSearch}" th:object="${perks}" method="get">
-  <div>
-  <label>Search Perks:</label>
-  <input type="search" id="pSearchID" name = "pSearchName" />
-  </div>
-  <div> <button>Submit</button>
-  </div>
-</form>
 
+<form>
+  <input type="search" id="perkSearch" name="perks">
+</form>
+<button onclick="getValue()">Get Value</button>
+<p id="Sample"></p>
+<script>
+  function getValue() {
+    var t = document.getElementById("perkSearch").value;
+    document.getElementById("Sample").innerHTML = "Value Entered: "+t;
+  }
+</script>
 
 </p>
 <a href="/PerkManager">GO BACK</a>
 </div>
 </body>
 </html>
+
+
