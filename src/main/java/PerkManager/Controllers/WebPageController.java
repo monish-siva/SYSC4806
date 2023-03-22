@@ -148,7 +148,7 @@ public class WebPageController {
         perks.upVote();
         perkRepository.save(perks);
         //model.addAttribute("perk", perk);
-        return "perk";
+        return "PerkList";
     }
 
     @PostMapping("/downVote")
@@ -158,6 +158,6 @@ public class WebPageController {
         perks.downVote();
         perkRepository.save(perks);
         //model.addAttribute("perk", perk);
-        return "perk";
+        return "PerkList";
     }
 }
