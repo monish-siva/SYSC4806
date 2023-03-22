@@ -65,4 +65,17 @@ public class PerkTest {
         assertEquals("10% off on movies", perk.getDiscount());
     }
 
+    @Test
+    public void upVote(){
+        Perk perk = new Perk();
+        perk.upVote();
+        assertEquals(1, perk.getVotes());
+    }
+
+    @Test
+    public void downVote(){
+        Perk perk = new Perk();
+        perk.downVote();
+        assertEquals(-1, perk.getVotes());
+    }
 }
