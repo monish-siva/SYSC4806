@@ -47,6 +47,12 @@ public class WebPageController {
         return "Login";
     }
 
+    @GetMapping("/PerkSearch")
+    public String perkSearch(Model model){
+        model.addAttribute("Search", new PerkList());
+        return "PerkSearch";
+    }
+
     @GetMapping("/availablePerksPage")
     public String perksPage(Model model) {
         model.addAttribute("PerkList", new PerkList());
