@@ -14,6 +14,7 @@
 - Be able to create and search for products
 - Finish perk voting
 - Finish perk searching
+- Implement Expirey
 - Test all new classes
 - Create integration tests for controllers
 - Implement Svelte
