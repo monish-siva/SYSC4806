@@ -7,4 +7,5 @@ import PerkManager.Classes.Perk;
 @Repository
 public interface PerkRepository extends CrudRepository<Perk, Long> {
     Perk findByID(long id);
+
 }
