@@ -11,7 +11,7 @@
 
 <div class = centreNoBorder>
 <h2 style="background-color:Tomato;">Create a New Perk</h2>
-<form id="addNewPerkForm" action="#" th:action="@{/newPerkPage}" th:object="${perk}" method="post">
+<form id="addNewPerkForm" action="#" th:action="@{/createNewPerk}" th:object="${perks}" method="post">
   <p>Perk Location  : <input type="text" th:field="*{location}" id="perkLocation" /></p>
   <p>Perk Card      :  <input type="text" th:field="*{card}" id="perkCard" /></p>
   <p>Perk MemberShip:  <input type="text" th:field="*{membership}" id="perkMembership" /></p>
@@ -20,7 +20,9 @@
 </form>
 
 <br><br><br>
-<a href="/PerkList">GO BACK</a>
+  <form th:action="@{/availablePerksPage}" th:object="${PerkList}" method="post">
+    <input type="submit" value="GO BACK" />
+  </form>
 </div>>
 </body>
 </html>
