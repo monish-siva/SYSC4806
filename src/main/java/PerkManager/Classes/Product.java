@@ -69,4 +69,24 @@ public class Product {
     public void setID(Long ID) {
         this.ID = ID;
     }
+
+    public List<Perk> getPerks() {
+        return this.perks;
+    }
+
+    public String getPerkDiscounts() {
+        String discounts = "";
+        for (Perk perk:this.perks) {
+            discounts += perk.getDiscount() + " ";
+        }
+        return discounts;
+    }
+
+    public String getPerkCards() {
+        String cards = "";
+        for (Perk perk:this.perks) {
+            cards += perk.getCard() + " ";
+        }
+        return cards;
+    }
 }

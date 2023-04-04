@@ -8,10 +8,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import PerkManager.Classes.User;
 import PerkManager.Classes.UserAccounts;
-import PerkManager.Repositorys.PerkListRepository;
-import PerkManager.Repositorys.PerkRepository;
-import PerkManager.Repositorys.UserAccountsRepository;
-import PerkManager.Repositorys.UserRepository;
+import PerkManager.Repositorys.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -36,6 +33,12 @@ class WebPageControllerTest {
 
     @MockBean
     private PerkListRepository perkListRepository;
+
+    @MockBean
+    private ProductRepository productRepository;
+
+    @MockBean
+    private ProductListRepository productListRepository;
 
     @Test
     void frontPage() throws Exception {
