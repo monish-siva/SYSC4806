@@ -8,6 +8,8 @@
 <h1 style="background-color:Tomato;">All Available Products</h1>
 <p th:each="product : ${ProductList.getProducts()}">
     Name: <b><span th:text="${product.name}"/></b><br>
+    Perk Card: <b><span th:text="${product.getPerkCards()}"/></b><br>
+    Perk Discount: <b><span th:text="${product.getPerkDiscounts()}"/></b><br>
 </p>
 
 

@@ -28,7 +28,9 @@ public class StartJPAWebApplication {
             perkList.addPerk(perk3);
 
             Product product1 = new Product("iPhone 14");
-            Product product2 = new Product("Big Mac");
+            product1.addPerk(perk2);
+            Product product2 = new Product("Spider-Man 2");
+            product2.addPerk(perk1);
             ProductList productList = new ProductList(1L);
             productList.addProduct(product1);
             productList.addProduct(product2);
