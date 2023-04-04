@@ -1,10 +1,8 @@
 package PerkManager;
 
-import PerkManager.Classes.Perk;
-import PerkManager.Classes.PerkList;
-import PerkManager.Classes.User;
-import PerkManager.Classes.UserAccounts;
+import PerkManager.Classes.*;
 import PerkManager.Repositorys.PerkListRepository;
+import PerkManager.Repositorys.ProductListRepository;
 import PerkManager.Repositorys.UserAccountsRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -19,7 +17,7 @@ public class StartJPAWebApplication {
         SpringApplication.run(StartJPAWebApplication.class);
     }
     @Bean
-    public CommandLineRunner demo(UserAccountsRepository userAccountsRepository, PerkListRepository perkListRepository) {
+    public CommandLineRunner demo(UserAccountsRepository userAccountsRepository, PerkListRepository perkListRepository, ProductListRepository productListRepository) {
         return (args) -> {
             Perk perk1 = new Perk("ontario", "AmazonCreditCard", "AmazonPrime", "10% on Movies");
             Perk perk3 = new Perk("Toronto", "PC MasterCard", "PC Optimum", "1% of all purchases refunded as points");
@@ -28,6 +26,12 @@ public class StartJPAWebApplication {
             perkList.addPerk(perk1);
             perkList.addPerk(perk2);
             perkList.addPerk(perk3);
+
+            Product product1 = new Product("iPhone 14");
+            Product product2 = new Product("Big Mac");
+            ProductList productList = new ProductList(1L);
+            productList.addProduct(product1);
+            productList.addProduct(product2);
 
 
             User user1 = new User("admin", "password");
@@ -43,6 +47,7 @@ public class StartJPAWebApplication {
 
             perkListRepository.save(perkList);
             userAccountsRepository.save(userAccounts);
+            productListRepository.save(productList);
 
 
         };

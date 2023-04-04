@@ -6,11 +6,8 @@
 </head>
 <body>
 <h1 style="background-color:Tomato;">All Available Products</h1>
-<p th:each="perk : ${ProductList.getProducts()}">
-    Location: <b><span th:text="${perk.location}"/></b><br>
-    Card: <b><span th:text="${perk.card}"/></b><br>
-    MemberShip: <b><span th:text="${perk.membership}"/></b><br>
-    discount: <b><span th:text="${perk.discount}"/></b><br><br>
+<p th:each="product : ${ProductList.getProducts()}">
+    Name: <b><span th:text="${product.name}"/></b><br>
 </p>
 
 
