@@ -1,10 +1,7 @@
 package PerkManager.Controllers;
 
 import PerkManager.Classes.*;
-import PerkManager.Repositorys.PerkListRepository;
-import PerkManager.Repositorys.PerkRepository;
-import PerkManager.Repositorys.UserAccountsRepository;
-import PerkManager.Repositorys.UserRepository;
+import PerkManager.Repositorys.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +20,8 @@ public class WebPageController {
     private PerkRepository perkRepository;
 
     private PerkListRepository perkListRepository;
+    private ProductListRepository productListRepository;
+
 
     @Autowired
     private PerkService service;

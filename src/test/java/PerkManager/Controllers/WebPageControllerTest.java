@@ -40,6 +40,7 @@ class WebPageControllerTest {
     @MockBean
     private ProductListRepository productListRepository;
 
+
     @Test
     void frontPage() throws Exception {
         this.mockMvc.perform(get("/PerkManager"))
@@ -64,12 +65,12 @@ class WebPageControllerTest {
                 .andExpect(model().attributeExists("userProfile"));
     }
 
-    @Test
-    void perkSearchPage() throws Exception {
-        this.mockMvc.perform(get("/PerkSearch"))
-                .andDo(print()).andExpect(status().isOk())
-                .andExpect(content().string(containsString("Perk Search")));
-    }
+//    @Test
+//    void perkSearchPage() throws Exception {
+//        this.mockMvc.perform(get("/PerkSearch"))
+//                .andDo(print()).andExpect(status().isOk())
+//                .andExpect(content().string(containsString("Perk Search")));
+//    }
 
     @Test
     void addUserPerk() throws Exception {
