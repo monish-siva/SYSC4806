@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface PerkRepository extends JpaRepository<Perk, Long> {
+public interface PerkRepository extends CrudRepository<Perk, Long> {
     Perk findByID(long id);
     @Query (value = "select * from perk p where p.perk_name like %:keyword% or p.perk_location like %keyword%", nativeQuery = true)
     List<Perk> findByKeyword(@Param("keyword") String keyword);
