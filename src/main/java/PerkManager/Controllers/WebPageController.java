@@ -31,11 +31,12 @@ public class WebPageController {
 
 
     @Autowired
-    public WebPageController(UserAccountsRepository userAccountsRepository, UserRepository userRepository, PerkRepository perkRepository, PerkListRepository perkListRepository) {
+    public WebPageController(UserAccountsRepository userAccountsRepository, UserRepository userRepository, PerkRepository perkRepository, PerkListRepository perkListRepository, ProductListRepository productListRepository) {
         this.userAccountsRepository = userAccountsRepository;
         this.userRepository = userRepository;
         this.perkListRepository = perkListRepository;
         this.perkRepository = perkRepository;
+        this.productListRepository = productListRepository;
     }
     @GetMapping("/PerkManager")
     public void frontPage() {}
@@ -95,6 +96,12 @@ public class WebPageController {
         return "perks";
     }
 
+    @GetMapping("/createNewUserPerk")
+    public String newPerksUserPage(Model model) {
+        model.addAttribute("perks", new Perk());
+        return "perks";
+    }
+
 
     @PostMapping("/PerkSearch")
     public String pSearchSubmit(Model model, Perk perk){
@@ -127,7 +134,15 @@ public class WebPageController {
         return "PerkList";
     }
 
-
+    @PostMapping ("/availableProductsPage")
+    public String availableProductsPage(Model model) {
+        if (productListRepository.findByID(1L) == null) {
+            productListRepository.save(new ProductList());
+        }
+        ProductList productList = productListRepository.findByID(1L);
+        model.addAttribute("ProductList", productList);
+        return "ProductList";
+    }
 
     @PostMapping("/newUserInfoPage")
     public String userSubmit(@ModelAttribute("user") User user) {
@@ -146,6 +161,22 @@ public class WebPageController {
         perkListRepository.save(PerkList);
         return "perks";
     }
+
+    @PostMapping("/createNewUserPerk")
+    public String createNewNewPerk(@ModelAttribute("perks") Perk perks,Model model) {
+        UserAccounts accounts = userAccountsRepository.findByID(1L);
+        model.addAttribute("userProfile", accounts.getCurrentUser());
+
+        List<Perk> currentPerks = accounts.getUserByID(accounts.getCurrentUser().getID()-1).getPerk();
+        currentPerks.add(perks);
+        int size = currentPerks.size();
+        model.addAttribute("PerkList", currentPerks);
+        model.addAttribute("PerkListLength", size);
+
+        return "userProfile";
+    }
+
+
 
     @PostMapping("/userProfilePage")
     //public String userLogin(@ModelAttribute("userProfile") User user) {

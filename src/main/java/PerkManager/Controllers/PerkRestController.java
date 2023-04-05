@@ -4,6 +4,7 @@ import PerkManager.Classes.Perk;
 import PerkManager.Classes.PerkList;
 import PerkManager.Repositorys.PerkListRepository;
 import PerkManager.Repositorys.PerkRepository;
+import PerkManager.Repositorys.UserAccountsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,11 +16,13 @@ public class PerkRestController {
 
     private PerkRepository perkRepository;
     private PerkListRepository perkListRepository;
+    private UserAccountsRepository uar;
 
     @Autowired
-    public  PerkRestController(PerkRepository perkRepository, PerkListRepository perkListRepository){
+    public  PerkRestController(PerkRepository perkRepository, PerkListRepository perkListRepository, UserAccountsRepository uar){
         this.perkRepository = perkRepository;
         this.perkListRepository = perkListRepository;
+        this.uar = uar;
     }
 
     @RequestMapping(value = "/perks", method = RequestMethod.GET)
@@ -33,6 +36,13 @@ public class PerkRestController {
         PerkList perkList = perkListRepository.findByID(1L);
         Perk perk = new Perk(location, card, membership, discount);
         perkList.addPerk(perk);
+
+        UserAccounts ua =  uar.findByID(1L);
+        if (ua.getCurrentUser()!=null) {
+            ua.getCurrentUser().addPerk(perk);
+            uar.save(ua);
+        }
+
         perkRepository.save(perk);
         perkListRepository.save(perkList);
         return perk;

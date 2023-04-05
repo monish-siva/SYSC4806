@@ -17,6 +17,19 @@ public class UserAccounts {
     @GeneratedValue
     private Long ID;
 
+
+
+    @Transient
+    User currentUser = null;
+
+    public User getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(User currentUser) {
+        this.currentUser = currentUser;
+    }
+
     //Default-No-Argument-Constructor
     //Default Constructor.
     public UserAccounts () {
@@ -26,6 +39,7 @@ public class UserAccounts {
     public UserAccounts(Long id) {
         this.setID(id);
         this.users = new ArrayList<User>();
+
     }
 
     public void addUser(User user) {
@@ -47,10 +61,15 @@ public class UserAccounts {
         for (User user: this.users){
             if (user.getUsername().equals(username))
                 if (user.getPassword().equals(password))
+                    this.currentUser = user;
                     return user.getID();
         }
         System.out.println("0552 USER NOT FOUND");
         return null;
+    }
+
+    public User getCurentLoginUser(){
+        return this.currentUser;
     }
 
     //public User findUser
