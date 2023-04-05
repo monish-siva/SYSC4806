@@ -27,10 +27,12 @@
     MemberShip: <b><span th:text="${perk.membership}"/></b><br>
     discount: <b><span th:text="${perk.discount}"/></b><br>
     Votes: <b><span th:text="${perk.votes}"/></span></b><br><br>
-    UpVote Perk  :  <p><span> <input type="button"  id="perkLocation" /></span></p>
-  DownVote Perk:  <p><span> <input type="button"  id="perkCard" /></span></p>
-
-
+    UpVote Perk  :    <form action="http://localhost:8080/UpVotePage">
+                        <input type="submit" value="Upvote"/>
+                      </form>
+    DownVote Perk:  <form action="http://localhost:8080/DownVotePage">
+                        <input type="submit" value="Downvote"/>
+                    </form>
 
   </p>
 
