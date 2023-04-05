@@ -77,4 +77,19 @@ class WebPageControllerTest {
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(content().string(containsString("Perk")));
     }
+
+    @Test
+    void upvotePerk() throws Exception {
+        this.mockMvc.perform(get("/UpVotePage"))
+                .andDo(print()).andExpect(status().isOk())
+                .andExpect(content().string(containsString("Upvote Perk")));
+    }
+
+    @Test
+    void downvotePerk() throws Exception {
+        this.mockMvc.perform(get("/DownVotePage"))
+                .andDo(print()).andExpect(status().isOk())
+                .andExpect(content().string(containsString("Downvote Perk")));
+    }
+
 }
