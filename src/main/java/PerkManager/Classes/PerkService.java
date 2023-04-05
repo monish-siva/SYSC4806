@@ -18,7 +18,7 @@ public class PerkService {
     public PerkService(){}
 
     public List<Perk> getAllPerks(){
-        List<Perk> list =  repository.findAll();
+        List<Perk> list = (List<Perk>) repository.findAll();
         return list;
     }
 
