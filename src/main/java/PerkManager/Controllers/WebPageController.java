@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import org.springframework.web.bind.annotation.GetMapping;
+
 import java.util.List;
 
 @Controller
@@ -19,6 +21,14 @@ public class WebPageController {
 
     private PerkListRepository perkListRepository;
     private ProductListRepository productListRepository;
+
+
+    @Autowired
+    private PerkService service;
+
+
+
+
     @Autowired
     public WebPageController(UserAccountsRepository userAccountsRepository, UserRepository userRepository, PerkRepository perkRepository, PerkListRepository perkListRepository, ProductListRepository productListRepository) {
         this.userAccountsRepository = userAccountsRepository;
@@ -36,6 +46,20 @@ public class WebPageController {
         model.addAttribute("user", new User());
         return "Register";
     }
+
+    @GetMapping("/Index")
+    public String home(Model model, String keyword) {
+        List<Perk> list;
+        if(keyword!=null) {
+            list = service.getByKeyword(keyword);
+        }else {
+            list = service.getAllPerks();
+        }
+        model.addAttribute("list", list);
+        return "Index";
+    }
+
+
 
     @GetMapping("/Login")
     public String userLogin(Model model) {

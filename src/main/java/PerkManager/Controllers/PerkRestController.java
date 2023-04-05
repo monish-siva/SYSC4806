@@ -2,7 +2,6 @@ package PerkManager.Controllers;
 
 import PerkManager.Classes.Perk;
 import PerkManager.Classes.PerkList;
-import PerkManager.Classes.User;
 import PerkManager.Classes.UserAccounts;
 import PerkManager.Repositorys.PerkListRepository;
 import PerkManager.Repositorys.PerkRepository;

@@ -19,10 +19,6 @@
   <input type="submit" value="Login" />
 </form>
 
-<form action="http://localhost:8080/PerkSearch">
-  <input type="submit" value="Perk Search" />
-</form>
-
 <form th:action="@{/availablePerksPage}" th:object="${PerkList}" method="post">
   <input type="submit" value="See Available Perks" />
 </form>
