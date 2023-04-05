@@ -224,22 +224,32 @@ public class WebPageController {
         return "perkList";
     }
 
-    @PutMapping(value = "/availablePerksPage")
+    @GetMapping("/UpVotePage")
+    public String upVotePerkPage(Model model) {
+        model.addAttribute("perks", new Perk());
+        return "UpVotePage";
+    }
+    @PostMapping(value = "/UpVotePage")
     public String upVotePerks(@ModelAttribute("perk") Perk perk) {
         Perk perks = perkRepository.findByID(perk.getID());
         perks.upVote();
         perkRepository.save(perks);
         //model.addAttribute("perk", perk);
-        return "PerkList";
+        return "UpVotePage";
     }
 
-    @PatchMapping("/availablePerksPage")
+    @GetMapping("/DownVotePage")
+    public String downVotePerkPage(Model model) {
+        model.addAttribute("perks", new Perk());
+        return "DownVotePage";
+    }
+    @PostMapping("/DownVotePage")
     public String downVotePerks(@ModelAttribute("perk") Perk perk) {
         //Perk perk = perkRepository.findByID(1L);
         Perk perks = perkRepository.findByID(perk.getID());
         perks.downVote();
         perkRepository.save(perks);
         //model.addAttribute("perk", perk);
-        return "redirect:/availablePerksPage";
+        return "DownVotePage";
     }
 }
