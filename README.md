@@ -11,14 +11,8 @@
 - HTML for Upvoting/Downvoting/Search perks exists, but the functionality is not fully completed yet
 - All model classes are tested
 - Svelte research has been done, and video has been started
-### Plan For Next Sprint:
-- Be able to create and search for products
-- Finish perk voting
-- Finish perk searching
-- Implement Expirey
-- Test all new classes
-- Create integration tests for controllers
-- Implement Svelte
+- Able to view list of Products
+- Able to view perks associated with Products
 
 ### Svelte Research:
 https://docs.google.com/document/d/1vb8M9qReN6u99IAUqcpHyuDim7mkUhjKErqQ5f5sS2c/edit?usp=sharing
