@@ -1,5 +1,6 @@
 package PerkManager.Controllers;
 
+
 import PerkManager.Classes.*;
 import PerkManager.Repositorys.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,8 @@ public class WebPageController {
     private ProductListRepository productListRepository;
 
 
-    @Autowired
-    private PerkService service;
+//    @Autowired
+//    private PerkService service;
 
 
 
@@ -47,17 +48,17 @@ public class WebPageController {
         return "Register";
     }
 
-    @GetMapping("/Index")
-    public String home(Model model, String keyword) {
-        List<Perk> list;
-        if(keyword!=null) {
-            list = service.getByKeyword(keyword);
-        }else {
-            list = service.getAllPerks();
-        }
-        model.addAttribute("list", list);
-        return "Index";
-    }
+//    @GetMapping("/Index")
+//    public String home(Model model, String keyword) {
+//        List<Perk> list;
+//        if(keyword!=null) {
+//            list = service.getByKeyword(keyword);
+//        }else {
+//            list = service.getAllPerks();
+//        }
+//        model.addAttribute("list", list);
+//        return "Index";
+//    }
 
 
 
@@ -68,20 +69,20 @@ public class WebPageController {
         return "Login";
     }
 
-    @GetMapping("/PerkSearch")
-    public String perkSearch(Model model, @ModelAttribute("PerkList")
-    MyFormObject mfo, BindingResult result) {
-        PerkList pL = new PerkList();
-            Long perks = pL.findPerk(mfo.getPName());
-            model.addAttribute("search", perks);
-            return "PerkSearch";
-
-//        model.addAttribute("perkList", new PerkList());
-//        model.addAttribute("perks", new Perk());
-//        return "PerkSearch";
-
-
-    }
+//    @GetMapping("/PerkSearch")
+//    public String perkSearch(Model model, @ModelAttribute("PerkList")
+//    MyFormObject mfo, BindingResult result) {
+//        PerkList pL = new PerkList();
+//            Long perks = pL.findPerk(mfo.getPName());
+//            model.addAttribute("search", perks);
+//            return "PerkSearch";
+//
+////        model.addAttribute("perkList", new PerkList());
+////        model.addAttribute("perks", new Perk());
+////        return "PerkSearch";
+//
+//
+//    }
 
    /*@GetMapping("/availablePerksPage")
     public String perksPage(Model model) {
