@@ -1,9 +1,6 @@
 package PerkManager.Classes;
 import PerkManager.Classes.PerkSources.*;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import PerkManager.Classes.PerkSources.Membership;
 import PerkManager.Classes.PerkSources.Card;
 
@@ -12,7 +9,7 @@ import PerkManager.Classes.PerkSources.Card;
 public class Perk {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long ID;
 
     private String location;
