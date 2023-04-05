@@ -70,4 +70,11 @@ class WebPageControllerTest {
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(content().string(containsString("Perk Search")));
     }
+
+    @Test
+    void addUserPerk() throws Exception {
+        this.mockMvc.perform(get("/createNewUserPerk"))
+                .andDo(print()).andExpect(status().isOk())
+                .andExpect(content().string(containsString("Perk")));
+    }
 }

@@ -28,11 +28,14 @@
 </p>
     <hr class="rounded">
     <form action="http://localhost:8080/">
-        <input type="submit" value="Add A New Card and Membership" />
+        <input type="submit" value="Add A new Perk you Own" />
     </form>
 
     <form th:action="@{/availablePerksPage}" th:object="${PerkList}" method="post">
         <input type="submit" value="See Available Perks" />
+    </form>
+    <form action="http://localhost:8080/createNewUserPerk">
+        <input type="submit" value="Add A Perk" />
     </form>
 <br><br>
 

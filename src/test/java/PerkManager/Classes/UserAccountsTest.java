@@ -37,6 +37,16 @@ class UserAccountsTest {
         assertEquals(user2, account.getUserByID((long)1));
     }
 
+    @Test
+    void getCurrentUser() {
+        UserAccounts account = new UserAccounts();
+        User user1 = new User("user1", "password");
+        User user2 = new User("user2", "password");
+        account.addUser(user1);
+        account.addUser(user2);
+        assertEquals(account.getCurrentUser(), null);
+    }
+
     //test the getID method
     @Test
     void getID() {
