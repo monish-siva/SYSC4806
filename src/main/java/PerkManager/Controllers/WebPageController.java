@@ -71,6 +71,12 @@ public class WebPageController {
         return "perks";
     }
 
+    @GetMapping("/createNewUserPerk")
+    public String newPerksUserPage(Model model) {
+        model.addAttribute("perks", new Perk());
+        return "perks";
+    }
+
 
     @PostMapping("/PerkSearch")
     public String pSearchSubmit(Model model, Perk perk){
@@ -130,6 +136,22 @@ public class WebPageController {
         perkListRepository.save(PerkList);
         return "perks";
     }
+
+    @PostMapping("/createNewUserPerk")
+    public String createNewNewPerk(@ModelAttribute("perks") Perk perks,Model model) {
+        UserAccounts accounts = userAccountsRepository.findByID(1L);
+        model.addAttribute("userProfile", accounts.getCurrentUser());
+
+        List<Perk> currentPerks = accounts.getUserByID(accounts.getCurrentUser().getID()-1).getPerk();
+        currentPerks.add(perks);
+        int size = currentPerks.size();
+        model.addAttribute("PerkList", currentPerks);
+        model.addAttribute("PerkListLength", size);
+
+        return "userProfile";
+    }
+
+
 
     @PostMapping("/userProfilePage")
     //public String userLogin(@ModelAttribute("userProfile") User user) {
